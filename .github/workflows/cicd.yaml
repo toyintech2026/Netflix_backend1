@@ -31,8 +31,6 @@ jobs:
           docker build -t netflix_backend:latest .
 
       - name: Docker push
-        env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         run: |
-          docker tag netflix_backend:latest $ECR_REGISTRY/netflix_backend:latest
-          docker push $ECR_REGISTRY/netflix_backend:latest
+        docker tag netflix_backend:latest 379220350329.dkr.ecr.eu-north-1.amazonaws.com/netflix_backend:latest
+        docker push 379220350329.dkr.ecr.eu-north-1.amazonaws.com/netflix_backend:latest
